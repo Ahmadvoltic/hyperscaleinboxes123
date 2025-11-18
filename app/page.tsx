@@ -5,6 +5,9 @@ import InfrastructureBenefits from "@/components/InfrastructureBenefits";
 import HowItWorks from "@/components/HowItWorks";
 import PricingSection from "@/components/PricingSection";
 import ComparisonSection from "@/components/ComparisonSection";
+import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -16,6 +19,9 @@ export default function Home() {
       <HowItWorks />
       <PricingSection />
       <ComparisonSection />
+      <Testimonials />
+      <FAQ />
+      <Footer />
     </div>
   );
 }
