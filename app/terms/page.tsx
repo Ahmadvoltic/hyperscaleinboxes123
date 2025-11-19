@@ -284,7 +284,7 @@ export default function TermsOfService() {
                             <div key={subIndex}>
                               <h3 className="text-lg font-semibold text-white mb-2">{subsection.subtitle}</h3>
                               <p className="text-gray-300 leading-relaxed mb-2">{subsection.content}</p>
-                              {'list' in subsection && subsection.list && Array.isArray(subsection.list) && (
+                              {('list' in subsection && Array.isArray(subsection.list)) ? (
                                 <ul className="space-y-2 mt-3">
                                   {subsection.list.map((item, itemIndex) => (
                                     <li key={itemIndex} className="flex items-start gap-3">
@@ -293,14 +293,14 @@ export default function TermsOfService() {
                                     </li>
                                   ))}
                                 </ul>
-                              )}
+                              ) : null}
                             </div>
                           ))}
                         </div>
                       ) : (
                         <>
                           <p className="text-gray-300 leading-relaxed mb-3">{section.content}</p>
-                          {section.list && (
+                          {'list' in section && section.list ? (
                             <ul className="space-y-2 mt-3">
                               {section.list.map((item, itemIndex) => (
                                 <li key={itemIndex} className="flex items-start gap-3">
@@ -309,12 +309,12 @@ export default function TermsOfService() {
                                 </li>
                               ))}
                             </ul>
-                          )}
-                          {section.footer && (
+                          ) : null}
+                          {'footer' in section && section.footer ? (
                             <p className="text-gray-300 leading-relaxed mt-4 pt-4 border-t" style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}>
-                              {section.footer}
+                              {String(section.footer)}
                             </p>
-                          )}
+                          ) : null}
                         </>
                       )}
                     </div>
