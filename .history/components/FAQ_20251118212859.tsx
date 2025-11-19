@@ -20,7 +20,7 @@ const FAQ = () => {
     },
     {
       question: "What's included in the pricing?",
-      answer: "Our pricing includes 50 Microsoft Partner accounts per domain, 200 emails per day per account (unlimited total capacity), 100% automated setup, SPF/DKIM/Strict DMARC configuration, premium 1-on-1 support, and no setup fees. The Full Package ($22/domain) also includes domain registration."
+      answer: "Our pricing includes 50 Microsoft Partner accounts per domain, 200 emails per day per account (unlimited total capacity), 100% automated setup, SPF/DKIM/Strict DMARC configuration, premium 1-on-1 support, and no setup fees. The Full Package ($12/domain) also includes domain registration."
     },
     {
       question: "Can I use my own domain?",

@@ -47,7 +47,7 @@ const WhyChooseUs = () => {
                 </div>
 
                 <div className="flex items-baseline gap-3 pt-4 border-t border-white/10">
-                  <span className="text-4xl lg:text-5xl font-bold text-white">$22</span>
+                  <span className="text-4xl lg:text-5xl font-bold text-white">$12</span>
                   <div>
                     <p className="text-lg text-gray-300 font-semibold">per domain</p>
                     <p className="text-sm text-gray-400">with domain included</p>

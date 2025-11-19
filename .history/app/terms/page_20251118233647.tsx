@@ -64,7 +64,7 @@ export default function TermsOfService() {
       subsections: [
         {
           subtitle: "Pricing Plans",
-          content: "Our current pricing is $10 per domain for BYOD (Bring Your Own Domain) and $22 per domain for Full Package (including domain registration). Prices are subject to change with 30 days' notice."
+          content: "Our current pricing is $10 per domain for BYOD (Bring Your Own Domain) and $12 per domain for Full Package (including domain registration). Prices are subject to change with 30 days' notice."
         },
         {
           subtitle: "Payment Terms",

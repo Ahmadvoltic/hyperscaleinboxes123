@@ -153,7 +153,7 @@ const PricingSection = () => {
               {/* Price */}
               <div className="mb-8 pb-8 border-b" style={{ borderColor: 'rgba(255, 110, 64, 0.2)' }}>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-6xl font-bold text-white">$22</span>
+                  <span className="text-6xl font-bold text-white">$12</span>
                   <span className="text-xl text-gray-300">/domain</span>
                 </div>
               </div>
