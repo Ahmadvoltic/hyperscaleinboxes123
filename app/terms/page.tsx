@@ -284,7 +284,7 @@ export default function TermsOfService() {
                             <div key={subIndex}>
                               <h3 className="text-lg font-semibold text-white mb-2">{subsection.subtitle}</h3>
                               <p className="text-gray-300 leading-relaxed mb-2">{subsection.content}</p>
-                              {'list' in subsection && subsection.list ? (
+                              {'list' in subsection && subsection.list && Array.isArray(subsection.list) && (
                                 <ul className="space-y-2 mt-3">
                                   {subsection.list.map((item, itemIndex) => (
                                     <li key={itemIndex} className="flex items-start gap-3">
@@ -293,7 +293,7 @@ export default function TermsOfService() {
                                     </li>
                                   ))}
                                 </ul>
-                              ) : null}
+                              )}
                             </div>
                           ))}
                         </div>
