@@ -36,8 +36,8 @@ export default function Contact() {
         </svg>
       ),
       title: "Email",
-      detail: "support@hyperscale.com",
-      link: "mailto:support@hyperscale.com",
+      detail: "support@hyperscaleinboxes.com",
+      link: "mailto:support@hyperscaleinboxes.com",
     },
     {
       icon: (
