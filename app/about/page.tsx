@@ -169,53 +169,53 @@ export default function About() {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#1c1c1c" }}>
+    <div className="min-h-screen bg-gradient-to-b from-[#0a0a0a] via-[#1a1a1a] to-[#0f0f0f]">
       <Navigation />
 
       {/* Hero Section */}
       <section
         className="relative overflow-hidden"
-        style={{ backgroundColor: "#1c1c1c", minHeight: "600px" }}
+        style={{ background: "linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #141414 100%)", minHeight: "700px" }}
       >
         {/* FloatingLines Background */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 opacity-60">
 <FloatingLines
-  linesGradient={['#ff6e40', '#ff6e40', '#ff6e40']}
-  lineCount={9}
-  lineDistance={10}
+  linesGradient={['#ff6e40', '#ff8c69', '#ff6e40']}
+  lineCount={12}
+  lineDistance={12}
   wavePosition={{ x: 5.0, y: 0.0, rotate: 0.2 }}
-  animationSpeed={1}
+  animationSpeed={0.8}
   mixBlendMode="screen"
 />
         </div>
 
-        {/* Black Transparent Overlay with Blur */}
+        {/* Gradient Overlay for Depth */}
         <div
-          className="absolute inset-0 backdrop-blur-[1.5px]"
-          style={{ backgroundColor: "rgba(10, 10, 10, 0.15)" }}
+          className="absolute inset-0 backdrop-blur-[2px]"
+          style={{ background: "radial-gradient(circle at 50% 50%, rgba(255, 110, 64, 0.08) 0%, rgba(10, 10, 10, 0.4) 100%)" }}
         ></div>
 
         <div
-          className="container mx-auto px-6 lg:px-16 relative z-10 flex items-center justify-center"
-          style={{ minHeight: "600px" }}
+          className="container mx-auto px-6 lg:px-20 relative z-10 flex items-center justify-center"
+          style={{ minHeight: "700px" }}
         >
           <div
-            className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${
+            className={`max-w-5xl mx-auto text-center transition-all duration-1200 ease-out ${
               isVisible.hero
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 translate-y-16 scale-95"
             }`}
           >
-            <div className="mb-6 inline-flex items-center gap-2 bg-white/20 text-white px-5 py-2 rounded-full backdrop-blur-sm">
-              <span className="w-2 h-2 bg-white rounded-full"></span>
-              <span className="font-semibold">About Us</span>
+            <div className="mb-8 inline-flex items-center gap-3 bg-gradient-to-r from-orange-500/20 via-orange-500/10 to-transparent border border-orange-500/30 text-white px-6 py-3 rounded-full backdrop-blur-md shadow-lg shadow-orange-500/20">
+              <span className="w-2.5 h-2.5 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full animate-pulse shadow-lg shadow-orange-500/50"></span>
+              <span className="font-semibold tracking-wide text-sm">About Us</span>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-[1.15] tracking-tight">
               <span className="text-white">Delivering </span>
-              <span style={{ color: "#ff6e40" }}>Excellence</span>
+              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">Excellence</span>
               <span className="text-white"> in Email Infrastructure</span>
             </h1>
-            <p className="text-lg lg:text-xl text-white/90 leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto font-light tracking-wide">
               We're on a mission to help businesses worldwide achieve unlimited
               email capacity through innovative Microsoft Partner solutions
             </p>
@@ -225,15 +225,15 @@ export default function About() {
 
       {/* Mission, Vision & More Cards */}
       <section
-        className="py-20"
-        style={{ backgroundColor: "#1c1c1c" }}
+        className="py-24 relative"
+        style={{ background: "linear-gradient(180deg, #141414 0%, #0f0f0f 100%)" }}
         data-section="cards"
       >
-        <div className="container mx-auto px-6 lg:px-16 max-w-7xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="container mx-auto px-6 lg:px-20 max-w-7xl">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Mission */}
             <div
-              className={`relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-700 group overflow-hidden h-full flex flex-col ${
+              className={`relative bg-gradient-to-br from-white/[0.07] via-white/[0.04] to-transparent backdrop-blur-xl rounded-3xl p-8 lg:p-10 border border-white/[0.08] hover:border-orange-500/40 transition-all duration-700 group overflow-hidden h-full flex flex-col shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 ${
                 isVisible.cards
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 -translate-x-20"
@@ -241,14 +241,15 @@ export default function About() {
               style={{ transitionDelay: "0ms" }}
             >
               <div
-                className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
-                style={{ backgroundColor: "#ff6e40" }}
+                className="absolute -top-24 -right-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-20 transition-all duration-700 blur-3xl"
+                style={{ background: "radial-gradient(circle, #ff6e40 0%, transparent 70%)" }}
               ></div>
-              <h2 className="text-xl font-bold mb-3">
-                <span className="text-white">Our </span>
-                <span style={{ color: "#ff6e40" }}>Mission</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
+              <h2 className="text-2xl font-bold mb-4 relative z-10">
+                <span className="text-white tracking-tight">Our </span>
+                <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Mission</span>
               </h2>
-              <p className="text-gray-400 leading-relaxed flex-grow">
+              <p className="text-gray-300 leading-relaxed flex-grow relative z-10 text-[15px]">
                 To empower businesses with reliable, unlimited email
                 infrastructure that guarantees inbox delivery through Microsoft
                 Partner accounts.
@@ -257,7 +258,7 @@ export default function About() {
 
             {/* Vision */}
             <div
-              className={`relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-700 group overflow-hidden h-full flex flex-col ${
+              className={`relative bg-gradient-to-br from-white/[0.07] via-white/[0.04] to-transparent backdrop-blur-xl rounded-3xl p-8 lg:p-10 border border-white/[0.08] hover:border-orange-500/40 transition-all duration-700 group overflow-hidden h-full flex flex-col shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 ${
                 isVisible.cards
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 -translate-x-20"
@@ -265,14 +266,15 @@ export default function About() {
               style={{ transitionDelay: "100ms" }}
             >
               <div
-                className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
-                style={{ backgroundColor: "#ff6e40" }}
+                className="absolute -top-24 -right-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-20 transition-all duration-700 blur-3xl"
+                style={{ background: "radial-gradient(circle, #ff6e40 0%, transparent 70%)" }}
               ></div>
-              <h2 className="text-xl font-bold mb-3">
-                <span className="text-white">Our </span>
-                <span style={{ color: "#ff6e40" }}>Vision</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
+              <h2 className="text-2xl font-bold mb-4 relative z-10">
+                <span className="text-white tracking-tight">Our </span>
+                <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Vision</span>
               </h2>
-              <p className="text-gray-400 leading-relaxed flex-grow">
+              <p className="text-gray-300 leading-relaxed flex-grow relative z-10 text-[15px]">
                 To become the world's most trusted email infrastructure
                 provider, enabling businesses to scale without limits while we
                 handle deliverability.
@@ -281,7 +283,7 @@ export default function About() {
 
             {/* Commitment */}
             <div
-              className={`relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-700 group overflow-hidden h-full flex flex-col ${
+              className={`relative bg-gradient-to-br from-white/[0.07] via-white/[0.04] to-transparent backdrop-blur-xl rounded-3xl p-8 lg:p-10 border border-white/[0.08] hover:border-orange-500/40 transition-all duration-700 group overflow-hidden h-full flex flex-col shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 ${
                 isVisible.cards
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 -translate-x-20"
@@ -289,14 +291,15 @@ export default function About() {
               style={{ transitionDelay: "200ms" }}
             >
               <div
-                className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
-                style={{ backgroundColor: "#ff6e40" }}
+                className="absolute -top-24 -right-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-20 transition-all duration-700 blur-3xl"
+                style={{ background: "radial-gradient(circle, #ff6e40 0%, transparent 70%)" }}
               ></div>
-              <h2 className="text-xl font-bold mb-3">
-                <span className="text-white">Our </span>
-                <span style={{ color: "#ff6e40" }}>Commitment</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
+              <h2 className="text-2xl font-bold mb-4 relative z-10">
+                <span className="text-white tracking-tight">Our </span>
+                <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Commitment</span>
               </h2>
-              <p className="text-gray-400 leading-relaxed flex-grow">
+              <p className="text-gray-300 leading-relaxed flex-grow relative z-10 text-[15px]">
                 Dedicated to providing exceptional service. From setup to
                 optimization, we ensure your email infrastructure performs at
                 its best every day.
@@ -305,7 +308,7 @@ export default function About() {
 
             {/* Why Choose Us */}
             <div
-              className={`relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-700 group overflow-hidden h-full flex flex-col ${
+              className={`relative bg-gradient-to-br from-white/[0.07] via-white/[0.04] to-transparent backdrop-blur-xl rounded-3xl p-8 lg:p-10 border border-white/[0.08] hover:border-orange-500/40 transition-all duration-700 group overflow-hidden h-full flex flex-col shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 ${
                 isVisible.cards
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 translate-x-20"
@@ -313,14 +316,15 @@ export default function About() {
               style={{ transitionDelay: "300ms" }}
             >
               <div
-                className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
-                style={{ backgroundColor: "#ff6e40" }}
+                className="absolute -top-24 -right-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-20 transition-all duration-700 blur-3xl"
+                style={{ background: "radial-gradient(circle, #ff6e40 0%, transparent 70%)" }}
               ></div>
-              <h2 className="text-xl font-bold mb-3">
-                <span className="text-white">Why </span>
-                <span style={{ color: "#ff6e40" }}>Choose Us</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
+              <h2 className="text-2xl font-bold mb-4 relative z-10">
+                <span className="text-white tracking-tight">Why </span>
+                <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Choose Us</span>
               </h2>
-              <p className="text-gray-400 leading-relaxed flex-grow">
+              <p className="text-gray-300 leading-relaxed flex-grow relative z-10 text-[15px]">
                 Unlimited capacity with Microsoft Partner infrastructure. 500+
                 satisfied clients achieving maximum deliverability at
                 transparent prices.
@@ -329,7 +333,7 @@ export default function About() {
 
             {/* Our Approach */}
             <div
-              className={`relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-700 group overflow-hidden h-full flex flex-col ${
+              className={`relative bg-gradient-to-br from-white/[0.07] via-white/[0.04] to-transparent backdrop-blur-xl rounded-3xl p-8 lg:p-10 border border-white/[0.08] hover:border-orange-500/40 transition-all duration-700 group overflow-hidden h-full flex flex-col shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 ${
                 isVisible.cards
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 translate-x-20"
@@ -337,14 +341,15 @@ export default function About() {
               style={{ transitionDelay: "400ms" }}
             >
               <div
-                className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
-                style={{ backgroundColor: "#ff6e40" }}
+                className="absolute -top-24 -right-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-20 transition-all duration-700 blur-3xl"
+                style={{ background: "radial-gradient(circle, #ff6e40 0%, transparent 70%)" }}
               ></div>
-              <h2 className="text-xl font-bold mb-3">
-                <span className="text-white">Our </span>
-                <span style={{ color: "#ff6e40" }}>Approach</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
+              <h2 className="text-2xl font-bold mb-4 relative z-10">
+                <span className="text-white tracking-tight">Our </span>
+                <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Approach</span>
               </h2>
-              <p className="text-gray-400 leading-relaxed flex-grow">
+              <p className="text-gray-300 leading-relaxed flex-grow relative z-10 text-[15px]">
                 Combining cutting-edge Microsoft technology with personalized
                 service. Every solution is tailored with proactive monitoring
                 and expert optimization.
@@ -353,7 +358,7 @@ export default function About() {
 
             {/* Global Reach */}
             <div
-              className={`relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-700 group overflow-hidden h-full flex flex-col ${
+              className={`relative bg-gradient-to-br from-white/[0.07] via-white/[0.04] to-transparent backdrop-blur-xl rounded-3xl p-8 lg:p-10 border border-white/[0.08] hover:border-orange-500/40 transition-all duration-700 group overflow-hidden h-full flex flex-col shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 ${
                 isVisible.cards
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 translate-x-20"
@@ -361,14 +366,15 @@ export default function About() {
               style={{ transitionDelay: "500ms" }}
             >
               <div
-                className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
-                style={{ backgroundColor: "#ff6e40" }}
+                className="absolute -top-24 -right-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-20 transition-all duration-700 blur-3xl"
+                style={{ background: "radial-gradient(circle, #ff6e40 0%, transparent 70%)" }}
               ></div>
-              <h2 className="text-xl font-bold mb-3">
-                <span className="text-white">Global </span>
-                <span style={{ color: "#ff6e40" }}>Reach</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
+              <h2 className="text-2xl font-bold mb-4 relative z-10">
+                <span className="text-white tracking-tight">Global </span>
+                <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Reach</span>
               </h2>
-              <p className="text-gray-400 leading-relaxed flex-grow">
+              <p className="text-gray-300 leading-relaxed flex-grow relative z-10 text-[15px]">
                 Serving clients worldwide with 24/7 support. Our global
                 infrastructure ensures fast, reliable delivery across all
                 regions and time zones.
@@ -380,13 +386,13 @@ export default function About() {
 
       {/* Stats Section */}
       <section
-        className="py-20"
-        style={{ backgroundColor: "#1c1c1c" }}
+        className="py-24 relative"
+        style={{ background: "linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%)" }}
         data-section="stats"
       >
-        <div className="container mx-auto px-6 lg:px-16 max-w-7xl">
+        <div className="container mx-auto px-6 lg:px-20 max-w-7xl">
           <div
-            className={`grid grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-1000 ${
+            className={`grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 transition-all duration-1000 ${
               isVisible.stats
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -395,16 +401,16 @@ export default function About() {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-300 text-center group overflow-hidden"
+                className="relative bg-gradient-to-br from-white/[0.06] to-white/[0.02] backdrop-blur-2xl rounded-3xl p-8 lg:p-10 border border-white/[0.08] hover:border-orange-500/40 transition-all duration-500 text-center group overflow-hidden hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div
-                  className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
-                  style={{ backgroundColor: "#ff6e40" }}
+                  className="absolute -top-20 -right-20 w-48 h-48 rounded-full opacity-0 group-hover:opacity-25 transition-all duration-700 blur-3xl"
+                  style={{ background: "radial-gradient(circle, #ff6e40 0%, transparent 70%)" }}
                 ></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
                 <h3
-                  className="text-4xl lg:text-5xl font-bold mb-2"
-                  style={{ color: "#ff6e40" }}
+                  className="text-5xl lg:text-6xl font-bold mb-3 relative z-10 bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent"
                 >
                   {typeof stat.value === "number"
                     ? stat.key === "clients"
@@ -417,7 +423,7 @@ export default function About() {
                     : stat.value}
                   {typeof stat.value === "number" && stat.suffix}
                 </h3>
-                <p className="text-gray-400 font-medium">{stat.label}</p>
+                <p className="text-gray-300 font-medium text-sm lg:text-base relative z-10">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -426,34 +432,34 @@ export default function About() {
 
       {/* Values */}
       <section
-        className="py-20"
-        style={{ backgroundColor: "#1c1c1c" }}
+        className="py-28 relative"
+        style={{ background: "linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 50%, #141414 100%)" }}
         data-section="values"
       >
-        <div className="container mx-auto px-6 lg:px-16 max-w-7xl">
+        <div className="container mx-auto px-6 lg:px-20 max-w-7xl">
           <div
-            className={`text-center mb-16 transition-all duration-1000 ${
+            className={`text-center mb-20 transition-all duration-1200 ease-out ${
               isVisible.values
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 translate-y-12 scale-95"
             }`}
           >
-            <div className="mb-6 inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 px-5 py-2 rounded-full">
-              <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
-              <span className="font-semibold text-orange-400">Our Values</span>
+            <div className="mb-8 inline-flex items-center gap-3 bg-gradient-to-r from-orange-500/20 via-orange-500/10 to-transparent border border-orange-500/30 px-6 py-3 rounded-full backdrop-blur-md shadow-lg shadow-orange-500/10">
+              <span className="w-2.5 h-2.5 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full animate-pulse shadow-lg shadow-orange-500/50"></span>
+              <span className="font-semibold text-orange-400 tracking-wide text-sm">Our Values</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
               <span className="text-white">What </span>
-              <span style={{ color: "#ff6e40" }}>Drives Us Forward</span>
+              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">Drives Us Forward</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed font-light">
               Our core values guide everything we do and shape how we serve our
               clients
             </p>
           </div>
 
           <div
-            className={`grid md:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-1000 ${
+            className={`grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 transition-all duration-1000 ${
               isVisible.values
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -462,45 +468,47 @@ export default function About() {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-300 text-center group overflow-hidden h-full flex flex-col"
+                className="relative bg-gradient-to-br from-white/[0.07] via-white/[0.04] to-transparent backdrop-blur-xl rounded-3xl p-8 lg:p-10 border border-white/[0.08] hover:border-orange-500/40 transition-all duration-700 text-center group overflow-hidden h-full flex flex-col hover:-translate-y-2 shadow-2xl hover:shadow-orange-500/10"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div
-                  className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
-                  style={{ backgroundColor: "#ff6e40" }}
+                  className="absolute -top-24 -right-24 w-52 h-52 rounded-full opacity-0 group-hover:opacity-20 transition-all duration-700 blur-3xl"
+                  style={{ background: "radial-gradient(circle, #ff6e40 0%, transparent 70%)" }}
                 ></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
                 <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+                  className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:scale-110 transition-transform duration-500"
                   style={{
-                    backgroundColor: "rgba(255, 110, 64, 0.1)",
+                    background: "linear-gradient(135deg, rgba(255, 110, 64, 0.15) 0%, rgba(255, 110, 64, 0.05) 100%)",
                     border: "2px solid rgba(255, 110, 64, 0.3)",
+                    boxShadow: "0 8px 32px rgba(255, 110, 64, 0.15)"
                   }}
                 >
                   {value.icon === "server" && (
-                    <svg className="w-8 h-8" style={{ color: "#ff6e40" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-10 h-10 text-orange-500 group-hover:text-orange-400 transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
                     </svg>
                   )}
                   {value.icon === "document" && (
-                    <svg className="w-8 h-8" style={{ color: "#ff6e40" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-10 h-10 text-orange-500 group-hover:text-orange-400 transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                   )}
                   {value.icon === "shield" && (
-                    <svg className="w-8 h-8" style={{ color: "#ff6e40" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-10 h-10 text-orange-500 group-hover:text-orange-400 transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   )}
                   {value.icon === "handshake" && (
-                    <svg className="w-8 h-8" style={{ color: "#ff6e40" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-10 h-10 text-orange-500 group-hover:text-orange-400 transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                   )}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">
+                <h3 className="text-2xl font-bold text-white mb-4 relative z-10 tracking-tight">
                   {value.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed flex-grow">
+                <p className="text-gray-300 text-[15px] leading-relaxed flex-grow relative z-10">
                   {value.description}
                 </p>
               </div>
@@ -511,46 +519,46 @@ export default function About() {
 
       {/* Timeline */}
       <section
-        className="py-20"
-        style={{ backgroundColor: "#1c1c1c" }}
+        className="py-28 relative"
+        style={{ background: "linear-gradient(180deg, #141414 0%, #0f0f0f 50%, #1a1a1a 100%)" }}
         data-section="timeline"
       >
-        <div className="container mx-auto px-6 lg:px-16 max-w-6xl">
+        <div className="container mx-auto px-6 lg:px-20 max-w-6xl">
           <div
-            className={`text-center mb-16 transition-all duration-1000 ${
+            className={`text-center mb-20 transition-all duration-1200 ease-out ${
               isVisible.timeline
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 translate-y-12 scale-95"
             }`}
           >
-            <div className="mb-6 inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 px-5 py-2 rounded-full">
-              <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
-              <span className="font-semibold text-orange-400">Our Journey</span>
+            <div className="mb-8 inline-flex items-center gap-3 bg-gradient-to-r from-orange-500/20 via-orange-500/10 to-transparent border border-orange-500/30 px-6 py-3 rounded-full backdrop-blur-md shadow-lg shadow-orange-500/10">
+              <span className="w-2.5 h-2.5 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full animate-pulse shadow-lg shadow-orange-500/50"></span>
+              <span className="font-semibold text-orange-400 tracking-wide text-sm">Our Journey</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
               <span className="text-white">Growing Together </span>
-              <span style={{ color: "#ff6e40" }}>Since 2020</span>
+              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">Since 2020</span>
             </h2>
           </div>
 
           <div className="relative" ref={timelineRef}>
             {/* Timeline Line for Mobile */}
             <div
-              className="absolute left-6 top-0 w-0.5 h-full lg:hidden"
-              style={{ backgroundColor: "rgba(255, 110, 64, 0.2)" }}
+              className="absolute left-7 top-0 w-1 h-full lg:hidden"
+              style={{ background: "linear-gradient(180deg, rgba(255, 110, 64, 0.3) 0%, rgba(255, 110, 64, 0.1) 100%)" }}
             ></div>
 
             {/* Timeline Line for Desktop */}
             <div
               className="absolute left-1/2 -translate-x-1/2 w-1 h-full hidden lg:block"
-              style={{ backgroundColor: "rgba(255, 110, 64, 0.2)" }}
+              style={{ background: "linear-gradient(180deg, rgba(255, 110, 64, 0.3) 0%, rgba(255, 110, 64, 0.1) 100%)" }}
             ></div>
 
-            <div className="space-y-8 lg:space-y-12">
+            <div className="space-y-10 lg:space-y-16">
               {timeline.map((item, index) => (
                 <div
                   key={index}
-                  className={`flex items-start gap-6 lg:gap-8 ${
+                  className={`flex items-start gap-8 lg:gap-12 ${
                     index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
                   } ${
                     isVisible.timeline
@@ -558,16 +566,19 @@ export default function About() {
                       : "opacity-0 translate-y-10"
                   }`}
                   style={{
-                    transitionDelay: `${index * 100}ms`,
-                    transition: "all 0.7s",
+                    transitionDelay: `${index * 150}ms`,
+                    transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 >
                   {/* Mobile Timeline Dot */}
                   <div
-                    className="lg:hidden flex w-8 h-8 rounded-full flex-shrink-0 items-center justify-center relative z-10 mt-1"
-                    style={{ backgroundColor: "#ff6e40" }}
+                    className="lg:hidden flex w-10 h-10 rounded-full flex-shrink-0 items-center justify-center relative z-10 mt-1 shadow-lg shadow-orange-500/30"
+                    style={{
+                      background: "linear-gradient(135deg, #ff6e40 0%, #ff8c69 100%)",
+                      border: "3px solid rgba(255, 110, 64, 0.3)"
+                    }}
                   >
-                    <div className="w-4 h-4 rounded-full bg-white" />
+                    <div className="w-4 h-4 rounded-full bg-white shadow-inner" />
                   </div>
 
                   <div
@@ -575,26 +586,32 @@ export default function About() {
                       index % 2 === 0 ? "lg:text-right" : "lg:text-left"
                     }`}
                   >
-                    <div className="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-orange-500/50 hover:shadow-2xl transition-all duration-300">
+                    <div className="group bg-gradient-to-br from-white/[0.08] via-white/[0.04] to-transparent backdrop-blur-xl rounded-3xl p-8 lg:p-10 border border-white/[0.08] hover:border-orange-500/40 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-700 relative overflow-hidden hover:-translate-y-1">
                       <div
-                        className="text-2xl font-bold mb-2"
-                        style={{ color: "#ff6e40" }}
+                        className="absolute -top-20 -right-20 w-48 h-48 rounded-full opacity-0 group-hover:opacity-15 transition-all duration-700 blur-3xl"
+                        style={{ background: "radial-gradient(circle, #ff6e40 0%, transparent 70%)" }}
+                      ></div>
+                      <div
+                        className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent relative z-10"
                       >
                         {item.year}
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-2">
+                      <h3 className="text-2xl font-bold text-white mb-3 relative z-10 tracking-tight">
                         {item.title}
                       </h3>
-                      <p className="text-gray-400">{item.description}</p>
+                      <p className="text-gray-300 leading-relaxed text-[15px] relative z-10">{item.description}</p>
                     </div>
                   </div>
 
                   {/* Desktop Timeline Dot */}
                   <div
-                    className="hidden lg:flex w-12 h-12 rounded-full flex-shrink-0 items-center justify-center relative z-10"
-                    style={{ backgroundColor: "#ff6e40" }}
+                    className="hidden lg:flex w-14 h-14 rounded-full flex-shrink-0 items-center justify-center relative z-10 shadow-xl shadow-orange-500/30 group-hover:scale-110 transition-transform duration-500"
+                    style={{
+                      background: "linear-gradient(135deg, #ff6e40 0%, #ff8c69 100%)",
+                      border: "4px solid rgba(255, 110, 64, 0.3)"
+                    }}
                   >
-                    <div className="w-6 h-6 rounded-full bg-white" />
+                    <div className="w-6 h-6 rounded-full bg-white shadow-inner" />
                   </div>
 
                   <div className="flex-1 hidden lg:block" />
@@ -607,34 +624,34 @@ export default function About() {
 
       {/* Team Section */}
       <section
-        className="py-20"
-        style={{ backgroundColor: "#1c1c1c" }}
+        className="py-28 relative"
+        style={{ background: "linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%)" }}
         data-section="team"
       >
-        <div className="container mx-auto px-6 lg:px-16 max-w-7xl">
+        <div className="container mx-auto px-6 lg:px-20 max-w-7xl">
           <div
-            className={`text-center mb-16 transition-all duration-1000 ${
+            className={`text-center mb-20 transition-all duration-1200 ease-out ${
               isVisible.team
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 translate-y-12 scale-95"
             }`}
           >
-            <div className="mb-6 inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 px-5 py-2 rounded-full">
-              <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
-              <span className="font-semibold text-orange-400">Our Team</span>
+            <div className="mb-8 inline-flex items-center gap-3 bg-gradient-to-r from-orange-500/20 via-orange-500/10 to-transparent border border-orange-500/30 px-6 py-3 rounded-full backdrop-blur-md shadow-lg shadow-orange-500/10">
+              <span className="w-2.5 h-2.5 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full animate-pulse shadow-lg shadow-orange-500/50"></span>
+              <span className="font-semibold text-orange-400 tracking-wide text-sm">Our Team</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
               <span className="text-white">Meet the People Behind </span>
-              <span style={{ color: "#ff6e40" }}>HyperScale Inboxes</span>
+              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">HyperScale Inboxes</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed font-light">
               Our experienced team is dedicated to delivering exceptional email
               infrastructure solutions
             </p>
           </div>
 
           <div
-            className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-1000 ${
+            className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 transition-all duration-1000 ${
               isVisible.team
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -643,31 +660,31 @@ export default function About() {
             {team.map((member, index) => (
               <div
                 key={index}
-                className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-orange-500/50 transition-all duration-300 group overflow-hidden"
+                className="relative bg-gradient-to-br from-white/[0.08] via-white/[0.04] to-transparent backdrop-blur-xl rounded-3xl p-6 lg:p-8 border border-white/[0.08] hover:border-orange-500/40 transition-all duration-700 group overflow-hidden hover:-translate-y-2 shadow-2xl hover:shadow-orange-500/10"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div
-                  className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
-                  style={{ backgroundColor: "#ff6e40" }}
+                  className="absolute -top-24 -right-24 w-52 h-52 rounded-full opacity-0 group-hover:opacity-20 transition-all duration-700 blur-3xl"
+                  style={{ background: "radial-gradient(circle, #ff6e40 0%, transparent 70%)" }}
                 ></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
                 <div className="relative z-10">
-                  <div className="mb-6 overflow-hidden rounded-xl">
+                  <div className="mb-6 overflow-hidden rounded-2xl ring-2 ring-white/5 group-hover:ring-orange-500/30 transition-all duration-500">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-72 object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-1">
+                  <h3 className="text-xl font-bold text-white mb-2 tracking-tight">
                     {member.name}
                   </h3>
                   <p
-                    className="text-sm font-semibold mb-3"
-                    style={{ color: "#ff6e40" }}
+                    className="text-sm font-semibold mb-4 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent"
                   >
                     {member.role}
                   </p>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-sm leading-relaxed">
                     {member.bio}
                   </p>
                 </div>

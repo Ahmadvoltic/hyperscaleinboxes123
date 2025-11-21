@@ -60,19 +60,19 @@ const ClientShowcase = () => {
   }, []);
 
   return (
-    <section className="pt-2 pb-0 relative" style={{ backgroundColor: '#1c1c1c' }}>
+    <section className="pt-2 pb-0 relative" style={{ background: "linear-gradient(180deg, #141414 0%, #0f0f0f 100%)" }}>
       <div className="w-full relative z-10">
-        <div className="w-full relative border-y border-white/5 py-8" style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
+        <div className="w-full relative border-y py-10" style={{ backgroundColor: 'rgba(255, 255, 255, 0.03)', borderColor: 'rgba(255, 110, 64, 0.1)' }}>
           <div className="overflow-hidden relative">
             {/* Left fade overlay */}
             <div
-              className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-              style={{ background: 'linear-gradient(to right, rgba(28, 28, 28, 0.8), transparent)' }}
+              className="absolute left-0 top-0 bottom-0 w-40 z-10 pointer-events-none"
+              style={{ background: 'linear-gradient(to right, rgba(15, 15, 15, 0.95), transparent)' }}
             />
             {/* Right fade overlay */}
             <div
-              className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-              style={{ background: 'linear-gradient(to left, rgba(28, 28, 28, 0.8), transparent)' }}
+              className="absolute right-0 top-0 bottom-0 w-40 z-10 pointer-events-none"
+              style={{ background: 'linear-gradient(to left, rgba(15, 15, 15, 0.95), transparent)' }}
             />
             <div ref={containerRef} className="flex">
             {/* Render logos twice for seamless loop */}

@@ -18,26 +18,26 @@ const PricingSection = () => {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#1c1c1c' }}>
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'rgba(255, 110, 64, 0.2)' }}></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse delay-1000" style={{ backgroundColor: 'rgba(255, 110, 64, 0.15)' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-3xl animate-pulse delay-2000" style={{ backgroundColor: 'rgba(255, 110, 64, 0.1)' }}></div>
+    <section className="py-28 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 50%, #141414 100%)" }}>
+      {/* Enhanced Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden opacity-50">
+        <div className="absolute top-20 left-10 w-80 h-80 rounded-full blur-3xl animate-pulse" style={{ background: 'radial-gradient(circle, rgba(255, 110, 64, 0.25) 0%, transparent 70%)' }}></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse delay-1000" style={{ background: 'radial-gradient(circle, rgba(255, 110, 64, 0.2) 0%, transparent 70%)' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl animate-pulse delay-2000" style={{ background: 'radial-gradient(circle, rgba(255, 110, 64, 0.15) 0%, transparent 70%)' }}></div>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-16 max-w-7xl relative z-10">
+      <div className="container mx-auto px-6 lg:px-20 max-w-7xl relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-xl rounded-full px-4 py-2 inline-flex items-center gap-2 mb-6 shadow-lg border border-white/20">
-            <span className="w-2 h-2 rounded-full bg-white"></span>
-            <span className="text-sm font-medium text-white">Pricing</span>
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <div className="bg-gradient-to-r from-orange-500/20 via-orange-500/10 to-transparent border border-orange-500/30 backdrop-blur-md rounded-full px-6 py-3 inline-flex items-center gap-3 mb-8 shadow-lg shadow-orange-500/10">
+            <span className="w-2.5 h-2.5 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full animate-pulse shadow-lg shadow-orange-500/50"></span>
+            <span className="text-sm font-semibold text-orange-400 tracking-wide">Pricing</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 tracking-tight">
             <span className="font-normal text-white">Simple,</span>{' '}
-            <span className="font-bold" style={{ color: '#ff6e40' }}>Transparent Pricing</span>
+            <span className="font-bold bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">Transparent Pricing</span>
           </h2>
-          <p className="text-lg text-gray-400">
+          <p className="text-xl text-gray-300 font-light">
             No hidden fees. No surprises. Just straightforward pricing that scales with your needs.
           </p>
         </div>
@@ -46,12 +46,13 @@ const PricingSection = () => {
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* BYOD Card */}
           <div
-            className="rounded-2xl p-10 border relative overflow-hidden group transition-all duration-300"
+            className="rounded-3xl p-10 lg:p-12 border relative overflow-hidden group transition-all duration-700 hover:-translate-y-2 shadow-2xl hover:shadow-orange-500/5"
             style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.03)',
-              borderColor: 'rgba(255, 255, 255, 0.1)',
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+              borderColor: 'rgba(255, 255, 255, 0.08)',
             }}
           >
+            <div className="absolute -top-24 -right-24 w-52 h-52 rounded-full opacity-0 group-hover:opacity-15 transition-all duration-700 blur-3xl" style={{ background: 'radial-gradient(circle, #ff6e40 0%, transparent 70%)' }}></div>
             <div className="relative z-10">
               {/* Title */}
               <h3 className="text-2xl font-bold text-white mb-2">
@@ -125,21 +126,22 @@ const PricingSection = () => {
 
           {/* Full Package Card - Featured */}
           <div
-            className="rounded-2xl p-10 border-2 relative overflow-hidden transition-all duration-300"
+            className="rounded-3xl p-10 lg:p-12 border-2 relative overflow-hidden transition-all duration-700 hover:-translate-y-2 shadow-2xl hover:shadow-orange-500/20"
             style={{
-              backgroundColor: 'rgba(255, 110, 64, 0.05)',
+              background: 'linear-gradient(135deg, rgba(255, 110, 64, 0.12) 0%, rgba(255, 110, 64, 0.04) 100%)',
               borderColor: '#ff6e40',
             }}
           >
-            {/* Popular badge */}
+            {/* Enhanced Popular badge */}
             <div className="absolute top-6 right-6">
               <span
-                className="px-3 py-1 rounded-full text-xs font-bold text-white"
-                style={{ backgroundColor: '#ff6e40' }}
+                className="px-4 py-2 rounded-full text-xs font-bold text-white shadow-lg shadow-orange-500/30"
+                style={{ background: 'linear-gradient(135deg, #ff6e40 0%, #ff8c69 100%)' }}
               >
                 POPULAR
               </span>
             </div>
+            <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full opacity-20 blur-3xl" style={{ background: 'radial-gradient(circle, #ff6e40 0%, transparent 70%)' }}></div>
 
             <div className="relative z-10">
               {/* Title */}

@@ -70,19 +70,19 @@ const ComparisonSection = () => {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#1c1c1c' }}>
-      <div className="container mx-auto px-6 lg:px-16 max-w-7xl relative z-10">
+    <section className="py-28 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #141414 0%, #0f0f0f 50%, #1a1a1a 100%)" }}>
+      <div className="container mx-auto px-6 lg:px-20 max-w-7xl relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-xl rounded-full px-4 py-2 inline-flex items-center gap-2 mb-6 shadow-lg border border-white/20">
-            <span className="w-2 h-2 rounded-full bg-white"></span>
-            <span className="text-sm font-medium text-white">Comparison</span>
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <div className="bg-gradient-to-r from-orange-500/20 via-orange-500/10 to-transparent border border-orange-500/30 backdrop-blur-md rounded-full px-6 py-3 inline-flex items-center gap-3 mb-8 shadow-lg shadow-orange-500/10">
+            <span className="w-2.5 h-2.5 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full animate-pulse shadow-lg shadow-orange-500/50"></span>
+            <span className="text-sm font-semibold text-orange-400 tracking-wide">Comparison</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6">
-            <span className="font-normal" style={{ color: '#e8e8e8' }}>See How We</span>{' '}
-            <span className="font-bold" style={{ color: '#ff6e40' }}>Stack Up</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 tracking-tight">
+            <span className="font-normal text-white">See How We</span>{' '}
+            <span className="font-bold bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">Stack Up</span>
           </h2>
-          <p className="text-lg" style={{ color: '#b0b0b0' }}>
+          <p className="text-xl text-gray-300 font-light">
             Compare our features and pricing with leading competitors
           </p>
         </div>
@@ -90,9 +90,9 @@ const ComparisonSection = () => {
         {/* Comparison Table - Mobile Optimized */}
         <div className="overflow-x-auto -mx-6 lg:mx-0">
           <div className="inline-block min-w-full px-6 lg:px-0 align-middle">
-            <div className="overflow-hidden rounded-3xl border backdrop-blur-xl shadow-2xl hover:bg-white/10 transition-all duration-300" style={{
-              borderColor: 'rgba(255, 255, 255, 0.1)',
-              backgroundColor: 'rgba(255, 255, 255, 0.05)'
+            <div className="overflow-hidden rounded-3xl border backdrop-blur-xl shadow-2xl transition-all duration-700" style={{
+              borderColor: 'rgba(255, 255, 255, 0.08)',
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)'
             }}>
               <table className="min-w-full">
                 <thead>

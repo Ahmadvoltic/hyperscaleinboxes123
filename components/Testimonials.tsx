@@ -95,19 +95,19 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#1c1c1c' }}>
+    <section className="py-28 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 50%, #141414 100%)" }}>
       {/* Section Header */}
-      <div className="container mx-auto px-6 lg:px-16 max-w-7xl relative z-10 mb-16">
+      <div className="container mx-auto px-6 lg:px-20 max-w-7xl relative z-10 mb-20">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-xl rounded-full px-4 py-2 inline-flex items-center gap-2 mb-6 shadow-lg border border-white/20">
-            <span className="w-2 h-2 rounded-full bg-white"></span>
-            <span className="text-sm font-medium text-white">Testimonials</span>
+          <div className="bg-gradient-to-r from-orange-500/20 via-orange-500/10 to-transparent border border-orange-500/30 backdrop-blur-md rounded-full px-6 py-3 inline-flex items-center gap-3 mb-8 shadow-lg shadow-orange-500/10">
+            <span className="w-2.5 h-2.5 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full animate-pulse shadow-lg shadow-orange-500/50"></span>
+            <span className="text-sm font-semibold text-orange-400 tracking-wide">Testimonials</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6">
-            <span className="font-normal" style={{ color: '#e8e8e8' }}>Trusted by</span>{' '}
-            <span className="font-bold" style={{ color: '#ff6e40' }}>Industry Leaders</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 tracking-tight">
+            <span className="font-normal text-white">Trusted by</span>{' '}
+            <span className="font-bold bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">Industry Leaders</span>
           </h2>
-          <p className="text-lg" style={{ color: '#b0b0b0' }}>
+          <p className="text-xl text-gray-300 font-light">
             See what our customers have to say about their experience
           </p>
         </div>
@@ -115,26 +115,27 @@ const Testimonials = () => {
 
       {/* Carousel - Full Width */}
       <div className="relative w-full">
-          {/* Gradient overlays for fade effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style={{
-            background: 'linear-gradient(to right, #1c1c1c 0%, transparent 100%)'
+          {/* Enhanced Gradient overlays for fade effect */}
+          <div className="absolute left-0 top-0 bottom-0 w-40 z-10 pointer-events-none" style={{
+            background: 'linear-gradient(to right, #0f0f0f 0%, transparent 100%)'
           }}></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style={{
-            background: 'linear-gradient(to left, #1c1c1c 0%, transparent 100%)'
+          <div className="absolute right-0 top-0 bottom-0 w-40 z-10 pointer-events-none" style={{
+            background: 'linear-gradient(to left, #0f0f0f 0%, transparent 100%)'
           }}></div>
 
           {/* Scrolling container */}
           <div className="overflow-hidden">
-            <div ref={carouselRef} className="flex gap-6">
+            <div ref={carouselRef} className="flex gap-8">
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-[450px] backdrop-blur-xl rounded-2xl p-8 border transition-all duration-300 hover:scale-105 cursor-pointer"
+                  className="flex-shrink-0 w-[450px] backdrop-blur-xl rounded-3xl p-10 border transition-all duration-700 cursor-pointer group relative overflow-hidden shadow-2xl hover:shadow-orange-500/10"
                   style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    borderColor: 'rgba(255, 255, 255, 0.1)'
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                    borderColor: 'rgba(255, 255, 255, 0.08)'
                   }}
                 >
+                  <div className="absolute -top-24 -right-24 w-52 h-52 rounded-full opacity-0 group-hover:opacity-15 transition-all duration-700 blur-3xl" style={{ background: 'radial-gradient(circle, #ff6e40 0%, transparent 70%)' }}></div>
                   {/* Rating */}
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -151,15 +152,15 @@ const Testimonials = () => {
                   </div>
 
                   {/* Content */}
-                  <p className="text-gray-300 mb-6 text-sm leading-relaxed">
+                  <p className="text-gray-300 mb-8 text-base leading-relaxed relative z-10">
                     "{testimonial.content}"
                   </p>
 
                   {/* Author */}
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 relative z-10">
                     <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white"
-                      style={{ backgroundColor: '#ff6e40' }}
+                      className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-white shadow-lg"
+                      style={{ background: 'linear-gradient(135deg, #ff6e40 0%, #ff8c69 100%)' }}
                     >
                       {testimonial.avatar}
                     </div>

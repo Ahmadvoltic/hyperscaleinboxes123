@@ -45,43 +45,46 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#1c1c1c' }}>
-      <div className="container mx-auto px-6 lg:px-16 max-w-4xl relative z-10">
+    <section className="py-28 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #141414 0%, #0a0a0a 100%)" }}>
+      <div className="container mx-auto px-6 lg:px-20 max-w-4xl relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="bg-white/10 backdrop-blur-xl rounded-full px-4 py-2 inline-flex items-center gap-2 mb-6 shadow-lg border border-white/20">
-            <span className="w-2 h-2 rounded-full bg-white"></span>
-            <span className="text-sm font-medium text-white">FAQ</span>
+        <div className="text-center mb-20">
+          <div className="bg-gradient-to-r from-orange-500/20 via-orange-500/10 to-transparent border border-orange-500/30 backdrop-blur-md rounded-full px-6 py-3 inline-flex items-center gap-3 mb-8 shadow-lg shadow-orange-500/10">
+            <span className="w-2.5 h-2.5 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full animate-pulse shadow-lg shadow-orange-500/50"></span>
+            <span className="text-sm font-semibold text-orange-400 tracking-wide">FAQ</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6">
-            <span className="font-normal" style={{ color: '#e8e8e8' }}>Frequently Asked</span>{' '}
-            <span className="font-bold" style={{ color: '#ff6e40' }}>Questions</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 tracking-tight">
+            <span className="font-normal text-white">Frequently Asked</span>{' '}
+            <span className="font-bold bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">Questions</span>
           </h2>
-          <p className="text-lg" style={{ color: '#b0b0b0' }}>
+          <p className="text-xl text-gray-300 font-light">
             Everything you need to know about HyperScale
           </p>
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <div className="space-y-5">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="backdrop-blur-xl rounded-2xl border overflow-hidden transition-all duration-300"
+              className="backdrop-blur-xl rounded-3xl border overflow-hidden transition-all duration-700 group hover:shadow-xl"
               style={{
-                backgroundColor: openIndex === index ? 'rgba(255, 110, 64, 0.05)' : 'rgba(255, 255, 255, 0.05)',
-                borderColor: openIndex === index ? '#ff6e40' : 'rgba(255, 255, 255, 0.1)'
+                background: openIndex === index
+                  ? 'linear-gradient(135deg, rgba(255, 110, 64, 0.12) 0%, rgba(255, 110, 64, 0.04) 100%)'
+                  : 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                borderColor: openIndex === index ? 'rgba(255, 110, 64, 0.4)' : 'rgba(255, 255, 255, 0.08)',
+                boxShadow: openIndex === index ? '0 8px 32px rgba(255, 110, 64, 0.15)' : '0 4px 16px rgba(0, 0, 0, 0.3)'
               }}
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left transition-all duration-300"
+                className="w-full px-8 py-6 flex items-center justify-between text-left transition-all duration-500"
               >
-                <span className="font-semibold text-white pr-8 text-sm md:text-base">
+                <span className="font-bold text-white pr-8 text-base md:text-lg tracking-tight">
                   {faq.question}
                 </span>
                 <svg
-                  className="w-6 h-6 flex-shrink-0 transition-transform duration-300"
+                  className="w-7 h-7 flex-shrink-0 transition-all duration-500"
                   style={{
                     color: openIndex === index ? '#ff6e40' : '#fff',
                     transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0deg)'
@@ -90,16 +93,16 @@ const FAQ = () => {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
               <div
-                className="overflow-hidden transition-all duration-300"
+                className="overflow-hidden transition-all duration-500"
                 style={{
                   maxHeight: openIndex === index ? '500px' : '0px'
                 }}
               >
-                <div className="px-6 pb-5 text-sm md:text-base leading-relaxed" style={{ color: '#b0b0b0' }}>
+                <div className="px-8 pb-6 text-base md:text-lg leading-relaxed text-gray-300">
                   {faq.answer}
                 </div>
               </div>

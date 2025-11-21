@@ -118,17 +118,17 @@ const InfrastructureBenefits = () => {
   ];
 
   return (
-    <section className="py-20 relative" style={{ backgroundColor: '#1c1c1c' }}>
-      <div className="container mx-auto px-6 lg:px-16 max-w-6xl">
+    <section className="py-28 relative" style={{ background: "linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%)" }}>
+      <div className="container mx-auto px-6 lg:px-20 max-w-6xl">
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-xl rounded-full px-4 py-2 inline-flex items-center gap-2 mb-6 shadow-lg border border-white/20">
-            <span className="w-2 h-2 rounded-full bg-white"></span>
-            <span className="text-sm font-medium text-white">Infrastructure Journey</span>
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <div className="bg-gradient-to-r from-orange-500/20 via-orange-500/10 to-transparent border border-orange-500/30 backdrop-blur-md rounded-full px-6 py-3 inline-flex items-center gap-3 mb-8 shadow-lg shadow-orange-500/10">
+            <span className="w-2.5 h-2.5 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full animate-pulse shadow-lg shadow-orange-500/50"></span>
+            <span className="text-sm font-semibold text-orange-400 tracking-wide">Infrastructure Journey</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 tracking-tight">
             <span className="font-normal text-white">Why</span>{' '}
-            <span className="font-bold" style={{ color: '#ff6e40' }}>Quality Email Infrastructure</span>{' '}
+            <span className="font-bold bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">Quality Email Infrastructure</span>{' '}
             <span className="font-normal text-white">Matters</span>
           </h2>
         </div>
@@ -161,24 +161,25 @@ const InfrastructureBenefits = () => {
                   ref={(el) => {
                     cardsRef.current[index] = el;
                   }}
-                  className="backdrop-blur-xl rounded-2xl p-6 sm:p-8 hover:border-white/20 transition-all duration-300 hover:shadow-2xl flex flex-col justify-center text-left max-w-md border relative overflow-hidden group cursor-pointer"
+                  className="backdrop-blur-xl rounded-3xl p-8 sm:p-10 hover:border-orange-500/40 transition-all duration-700 hover:shadow-2xl hover:shadow-orange-500/10 flex flex-col justify-center text-left max-w-md border relative overflow-hidden group cursor-pointer hover:-translate-y-1"
                   style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    borderColor: 'rgba(255, 255, 255, 0.1)',
-                    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
-                    minHeight: '180px'
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                    borderColor: 'rgba(255, 255, 255, 0.08)',
+                    boxShadow: '0 12px 40px 0 rgba(0, 0, 0, 0.5)',
+                    minHeight: '200px'
                   }}
                 >
-                  {/* Orange circle on hover - top right */}
+                  {/* Enhanced gradient circle on hover */}
                   <div
-                    className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
-                    style={{ backgroundColor: '#ff6e40' }}
+                    className="absolute -top-24 -right-24 w-52 h-52 rounded-full opacity-0 group-hover:opacity-20 transition-all duration-700 blur-3xl"
+                    style={{ background: 'radial-gradient(circle, #ff6e40 0%, transparent 70%)' }}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
 
-                  <h4 className="text-base sm:text-lg font-semibold mb-3 text-left relative z-10 text-white">
+                  <h4 className="text-lg sm:text-xl font-bold mb-4 text-left relative z-10 text-white tracking-tight">
                     {item.subtitle}
                   </h4>
-                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed text-left relative z-10">
+                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed text-left relative z-10">
                     {item.description}
                   </p>
                 </div>

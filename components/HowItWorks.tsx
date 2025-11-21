@@ -82,19 +82,19 @@ const HowItWorks = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen" style={{ backgroundColor: '#1c1c1c' }}>
-      <div className="container mx-auto px-6 lg:px-16 max-w-7xl h-screen flex flex-col justify-center py-20">
+    <section ref={sectionRef} className="relative min-h-screen" style={{ background: "linear-gradient(180deg, #0f0f0f 0%, #141414 50%, #1a1a1a 100%)" }}>
+      <div className="container mx-auto px-6 lg:px-20 max-w-7xl h-screen flex flex-col justify-center py-20">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <div className="bg-white/10 backdrop-blur-xl rounded-full px-5 py-2.5 inline-flex items-center gap-2 mb-6 shadow-lg border border-white/20">
-            <span className="w-2 h-2 rounded-full bg-white"></span>
-            <span className="text-sm font-medium text-white">
+          <div className="bg-gradient-to-r from-orange-500/20 via-orange-500/10 to-transparent border border-orange-500/30 backdrop-blur-md rounded-full px-6 py-3 inline-flex items-center gap-3 mb-8 shadow-lg shadow-orange-500/10">
+            <span className="w-2.5 h-2.5 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full animate-pulse shadow-lg shadow-orange-500/50"></span>
+            <span className="text-sm font-semibold text-orange-400 tracking-wide">
               How It Works
             </span>
           </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl leading-tight mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-4 tracking-tight">
             <span className="font-normal text-white">Get Started in</span>{' '}
-            <span className="font-bold" style={{ color: '#ff6e40' }}>4 Simple Steps</span>
+            <span className="font-bold bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">4 Simple Steps</span>
           </h2>
 
           {/* Enhanced Progress Indicator - Integrated with header */}

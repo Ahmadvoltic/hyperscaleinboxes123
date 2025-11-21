@@ -14,13 +14,29 @@ const DeliverabilityChart = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Generate last 6 months dynamically
+  const getLastSixMonths = () => {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const currentDate = new Date();
+    const result = [];
+
+    for (let i = 5; i >= 0; i--) {
+      const date = new Date(currentDate.getFullYear(), currentDate.getMonth() - i, 1);
+      result.push(months[date.getMonth()]);
+    }
+
+    return result;
+  };
+
+  const lastSixMonths = getLastSixMonths();
+
   const data = [
-    { month: "Jan", value: 65, label: "65%" },
-    { month: "Feb", value: 72, label: "72%" },
-    { month: "Mar", value: 78, label: "78%" },
-    { month: "Apr", value: 85, label: "85%" },
-    { month: "May", value: 92, label: "92%" },
-    { month: "Jun", value: 98, label: "98%" },
+    { month: lastSixMonths[0], value: 30, label: "30%" },
+    { month: lastSixMonths[1], value: 45, label: "45%" },
+    { month: lastSixMonths[2], value: 60, label: "60%" },
+    { month: lastSixMonths[3], value: 72, label: "72%" },
+    { month: lastSixMonths[4], value: 82, label: "82%" },
+    { month: lastSixMonths[5], value: 90, label: "90%" },
   ];
 
   // Calculate smooth SVG path using bezier curves
@@ -52,16 +68,16 @@ const DeliverabilityChart = () => {
         {/* Header */}
         <div className="mb-8 flex items-start justify-between">
           <div>
-            <h3 className="text-white text-xl font-bold mb-1">Email Deliverability</h3>
-            <p className="text-gray-400 text-sm">Last 6 months performance</p>
+            <h3 className="text-white text-3xl font-bold mb-2">Email Deliverability</h3>
+            <p className="text-orange-400 text-base font-semibold">After using HyperScale mailboxes</p>
           </div>
           <div className="text-right">
-            <div className="text-3xl font-bold text-white">98%</div>
-            <div className="flex items-center gap-1 text-green-400 text-xs font-semibold mt-1">
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="text-3xl font-bold text-white">90%</div>
+            <div className="flex items-center gap-1 text-green-400 text-base font-bold mt-1">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
               </svg>
-              <span>+33%</span>
+              <span>+60%</span>
             </div>
           </div>
         </div>
@@ -72,7 +88,7 @@ const DeliverabilityChart = () => {
           <div className="absolute inset-0 flex flex-col justify-between py-4">
             {[100, 75, 50, 25, 0].map((val) => (
               <div key={val} className="flex items-center gap-2">
-                <span className="text-gray-500 text-xs w-8">{val}%</span>
+                <span className="text-white text-xs w-8">{val}%</span>
                 <div className="flex-1 h-px bg-white/5"></div>
               </div>
             ))}
@@ -186,7 +202,7 @@ const DeliverabilityChart = () => {
           {/* X-axis labels */}
           <div className="absolute bottom-0 left-12 right-0 flex justify-between">
             {data.map((item) => (
-              <span key={item.month} className="text-gray-400 text-xs font-medium">
+              <span key={item.month} className="text-white text-xs font-medium">
                 {item.month}
               </span>
             ))}
@@ -201,20 +217,19 @@ const DeliverabilityChart = () => {
           </div>
           <div>
             <div className="text-gray-400 text-xs mb-1">Success Rate</div>
-            <div className="text-white text-lg font-bold">98%</div>
+            <div className="text-white text-lg font-bold">90%</div>
           </div>
           <div>
             <div className="text-gray-400 text-xs mb-1">Avg. Time</div>
             <div className="text-white text-lg font-bold">2.3s</div>
           </div>
         </div>
-      </div>
 
-      {/* Floating Badge */}
-      <div className="absolute -top-4 -right-4 bg-white rounded-full px-4 py-2 shadow-lg">
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-          <span className="text-black text-sm font-semibold">Live Data</span>
+        {/* Data Info */}
+        <div className="mt-6 pt-4 border-t border-white/5">
+          <p className="text-gray-400 text-xs text-center">
+            Last 6 months data • Updated {new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+          </p>
         </div>
       </div>
     </div>
