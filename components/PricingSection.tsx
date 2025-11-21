@@ -18,7 +18,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <section className="py-28 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 50%, #141414 100%)" }}>
+    <section id="pricing" className="py-28 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 50%, #141414 100%)" }}>
       {/* Enhanced Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden opacity-50">
         <div className="absolute top-20 left-10 w-80 h-80 rounded-full blur-3xl animate-pulse" style={{ background: 'radial-gradient(circle, rgba(255, 110, 64, 0.25) 0%, transparent 70%)' }}></div>

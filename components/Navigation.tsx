@@ -10,8 +10,8 @@ const Navigation = () => {
 
   const navItems = [
     { label: "Home", path: "/" },
-    { label: "Services", path: "#services" },
-    { label: "Pricing", path: "#pricing" },
+    { label: "How It Works", path: "/#services" },
+    { label: "Pricing", path: "/#pricing" },
     { label: "About Us", path: "/about" },
     { label: "Contact Us", path: "/contact" }
   ];
@@ -36,8 +36,8 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <span className="text-2xl font-bold bg-gradient-to-r from-white via-white to-orange-400 bg-clip-text text-transparent group-hover:from-orange-400 group-hover:via-orange-500 group-hover:to-orange-600 transition-all duration-500">
-              HyperScale
+            <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent transition-all duration-500">
+              HyperScaleInboxes
             </span>
           </Link>
 

@@ -82,7 +82,7 @@ const HowItWorks = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen" style={{ background: "linear-gradient(180deg, #0f0f0f 0%, #141414 50%, #1a1a1a 100%)" }}>
+    <section id="services" ref={sectionRef} className="relative min-h-screen" style={{ background: "linear-gradient(180deg, #0f0f0f 0%, #141414 50%, #1a1a1a 100%)" }}>
       <div className="container mx-auto px-6 lg:px-20 max-w-7xl h-screen flex flex-col justify-center py-20">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">

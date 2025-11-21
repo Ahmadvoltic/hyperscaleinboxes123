@@ -46,7 +46,7 @@ const HeroSection = () => {
 
             <div className="flex flex-wrap items-center justify-start gap-5 pt-4 animate-fade-in-up">
               <GetStartedButton />
-              <button className="rounded-full px-10 py-4 text-lg font-semibold backdrop-blur-xl text-white transition-all duration-500 border group relative overflow-hidden flex items-center gap-3"
+              <a href="#comparison" className="rounded-full px-10 py-4 text-lg font-semibold backdrop-blur-xl text-white transition-all duration-500 border group relative overflow-hidden flex items-center gap-3"
                 style={{
                   background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)',
                   borderColor: 'rgba(255, 255, 255, 0.15)',
@@ -65,11 +65,11 @@ const HeroSection = () => {
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
-                Watch Demo
-              </button>
+                Compare Plans
+              </a>
             </div>
           </div>
 

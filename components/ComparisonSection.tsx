@@ -70,7 +70,7 @@ const ComparisonSection = () => {
   ];
 
   return (
-    <section className="py-28 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #141414 0%, #0f0f0f 50%, #1a1a1a 100%)" }}>
+    <section id="comparison" className="py-28 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #141414 0%, #0f0f0f 50%, #1a1a1a 100%)" }}>
       <div className="container mx-auto px-6 lg:px-20 max-w-7xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
