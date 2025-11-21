@@ -13,9 +13,6 @@ const HeroSection = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-3xl animate-pulse delay-2000" style={{ backgroundColor: 'rgba(255, 110, 64, 0.1)' }}></div>
       </div>
 
-      {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-
       <div className="container mx-auto px-6 lg:px-16 py-16 w-full relative z-10">
         {/* Two Column Layout */}
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">

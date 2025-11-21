@@ -13,49 +13,38 @@ export default function About() {
     stats: false,
     values: false,
     timeline: false,
-    team: false,
     cta: false,
-  });
-
-  const [counts, setCounts] = useState({
-    clients: 0,
-    emails: 0,
-    uptime: 0,
   });
 
   const timelineRef = useRef<HTMLDivElement>(null);
 
   const stats = [
-    { value: 500, suffix: "+", label: "Active Clients", key: "clients" },
-    { value: 10, suffix: "M+", label: "Emails Delivered Daily", key: "emails" },
-    { value: 99.9, suffix: "%", label: "Uptime Guarantee", key: "uptime" },
-    { value: "24/7", label: "Expert Support", key: "support" },
+    { value: "500+", label: "Active Clients" },
+    { value: "10M+", label: "Emails Delivered Daily" },
+    { value: "99.9%", label: "Uptime Guarantee" },
+    { value: "24/7", label: "Expert Support" },
   ];
 
   const values = [
     {
       title: "Unlimited Capacity",
       description:
-        "True unlimited email capacity through 50 Microsoft Partner accounts per domain. Infrastructure built to scale with your business growth seamlessly.",
-      icon: "server",
+        "We deliver true unlimited email capacity through 50 Microsoft Partner accounts per domain, each sending 200 emails daily. Our infrastructure is built to scale with your business.",
     },
     {
       title: "Transparent Pricing",
       description:
-        "Simple $10-12 per domain pricing with no hidden fees or setup charges. Predictable costs that scale with your business needs.",
-      icon: "document",
+        "Simple $10-12 per domain pricing. No hidden fees, no setup charges, no surprises. Predictable costs that scale with your business needs.",
     },
     {
       title: "Enterprise Grade",
       description:
-        "SPF, DKIM, DMARC configuration with Microsoft Partner infrastructure. Maximum inbox placement and sender reputation protection.",
-      icon: "shield",
+        "SPF, DKIM, DMARC configuration with Microsoft Partner infrastructure. Maximum inbox placement and sender reputation protection for all clients.",
     },
     {
       title: "Expert Support",
       description:
-        "24/7 dedicated support team ensuring your email infrastructure performs flawlessly. We're here to help you succeed every step.",
-      icon: "handshake",
+        "24/7 dedicated support team ensuring your email infrastructure performs flawlessly. We're here to help you succeed every step of the way.",
     },
   ];
 
@@ -92,33 +81,6 @@ export default function About() {
     },
   ];
 
-  const team = [
-    {
-      name: "Sarah Johnson",
-      role: "CEO & Founder",
-      bio: "15+ years in email infrastructure and SaaS solutions. Led teams at Microsoft and built enterprise email systems from the ground up.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
-    },
-    {
-      name: "Michael Chen",
-      role: "CTO",
-      bio: "Former Microsoft Azure architect. Expert in scalable cloud infrastructure and email deliverability optimization.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Head of Customer Success",
-      bio: "Passionate about customer satisfaction. 10+ years helping businesses scale their email operations successfully.",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400",
-    },
-    {
-      name: "David Kumar",
-      role: "Lead Engineer",
-      bio: "Specializes in email automation and Microsoft Partner infrastructure. Built systems handling billions of emails.",
-      image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400",
-    },
-  ];
-
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -131,13 +93,6 @@ export default function About() {
           const section = entry.target.getAttribute("data-section");
           if (section) {
             setIsVisible((prev) => ({ ...prev, [section]: true }));
-
-            // Trigger counting animation for stats
-            if (section === "stats") {
-              animateCount("clients", 500, 1500);
-              animateCount("emails", 10, 1500);
-              animateCount("uptime", 99.9, 1500);
-            }
           }
         }
       });
@@ -151,22 +106,6 @@ export default function About() {
 
     return () => observer.disconnect();
   }, []);
-
-  const animateCount = (key: string, target: number, duration: number) => {
-    const steps = 60;
-    const increment = target / steps;
-    let current = 0;
-    const stepDuration = duration / steps;
-
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        current = target;
-        clearInterval(timer);
-      }
-      setCounts((prev) => ({ ...prev, [key]: current }));
-    }, stepDuration);
-  };
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#1c1c1c" }}>
@@ -182,7 +121,7 @@ export default function About() {
 <FloatingLines
   linesGradient={['#ff6e40', '#ff6e40', '#ff6e40']}
   lineCount={9}
-  lineDistance={10}
+  lineDistance={030}
   wavePosition={{ x: 5.0, y: 0.0, rotate: 0.2 }}
   animationSpeed={1}
   mixBlendMode="screen"
@@ -191,7 +130,7 @@ export default function About() {
 
         {/* Black Transparent Overlay with Blur */}
         <div
-          className="absolute inset-0 backdrop-blur-[1.5px]"
+          className="absolute inset-0 backdrop-blur-[2px]"
           style={{ backgroundColor: "rgba(10, 10, 10, 0.15)" }}
         ></div>
 
@@ -210,10 +149,8 @@ export default function About() {
               <span className="w-2 h-2 bg-white rounded-full"></span>
               <span className="font-semibold">About Us</span>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-white">Delivering </span>
-              <span style={{ color: "#ff6e40" }}>Excellence</span>
-              <span className="text-white"> in Email Infrastructure</span>
+            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Delivering Excellence in Email Infrastructure
             </h1>
             <p className="text-lg lg:text-xl text-white/90 leading-relaxed">
               We're on a mission to help businesses worldwide achieve unlimited
@@ -230,49 +167,35 @@ export default function About() {
         data-section="cards"
       >
         <div className="container mx-auto px-6 lg:px-16 max-w-7xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-1000 ${
+              isVisible.cards
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
             {/* Mission */}
-            <div
-              className={`relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-700 group overflow-hidden h-full flex flex-col ${
-                isVisible.cards
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 -translate-x-20"
-              }`}
-              style={{ transitionDelay: "0ms" }}
-            >
+            <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-300 group overflow-hidden">
               <div
                 className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
                 style={{ backgroundColor: "#ff6e40" }}
               ></div>
-              <h2 className="text-xl font-bold mb-3">
-                <span className="text-white">Our </span>
-                <span style={{ color: "#ff6e40" }}>Mission</span>
-              </h2>
-              <p className="text-gray-400 leading-relaxed flex-grow">
+              <h2 className="text-xl font-bold text-white mb-3">Our Mission</h2>
+              <p className="text-gray-400 leading-relaxed">
                 To empower businesses with reliable, unlimited email
                 infrastructure that guarantees inbox delivery through Microsoft
-                Partner accounts.
+                Partner accounts and transparent pricing.
               </p>
             </div>
 
             {/* Vision */}
-            <div
-              className={`relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-700 group overflow-hidden h-full flex flex-col ${
-                isVisible.cards
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 -translate-x-20"
-              }`}
-              style={{ transitionDelay: "100ms" }}
-            >
+            <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-300 group overflow-hidden">
               <div
                 className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
                 style={{ backgroundColor: "#ff6e40" }}
               ></div>
-              <h2 className="text-xl font-bold mb-3">
-                <span className="text-white">Our </span>
-                <span style={{ color: "#ff6e40" }}>Vision</span>
-              </h2>
-              <p className="text-gray-400 leading-relaxed flex-grow">
+              <h2 className="text-xl font-bold text-white mb-3">Our Vision</h2>
+              <p className="text-gray-400 leading-relaxed">
                 To become the world's most trusted email infrastructure
                 provider, enabling businesses to scale without limits while we
                 handle deliverability.
@@ -280,23 +203,15 @@ export default function About() {
             </div>
 
             {/* Commitment */}
-            <div
-              className={`relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-700 group overflow-hidden h-full flex flex-col ${
-                isVisible.cards
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 -translate-x-20"
-              }`}
-              style={{ transitionDelay: "200ms" }}
-            >
+            <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-300 group overflow-hidden">
               <div
                 className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
                 style={{ backgroundColor: "#ff6e40" }}
               ></div>
-              <h2 className="text-xl font-bold mb-3">
-                <span className="text-white">Our </span>
-                <span style={{ color: "#ff6e40" }}>Commitment</span>
+              <h2 className="text-xl font-bold text-white mb-3">
+                Our Commitment
               </h2>
-              <p className="text-gray-400 leading-relaxed flex-grow">
+              <p className="text-gray-400 leading-relaxed">
                 Dedicated to providing exceptional service. From setup to
                 optimization, we ensure your email infrastructure performs at
                 its best every day.
@@ -304,23 +219,15 @@ export default function About() {
             </div>
 
             {/* Why Choose Us */}
-            <div
-              className={`relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-700 group overflow-hidden h-full flex flex-col ${
-                isVisible.cards
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 translate-x-20"
-              }`}
-              style={{ transitionDelay: "300ms" }}
-            >
+            <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-300 group overflow-hidden">
               <div
                 className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
                 style={{ backgroundColor: "#ff6e40" }}
               ></div>
-              <h2 className="text-xl font-bold mb-3">
-                <span className="text-white">Why </span>
-                <span style={{ color: "#ff6e40" }}>Choose Us</span>
+              <h2 className="text-xl font-bold text-white mb-3">
+                Why Choose Us
               </h2>
-              <p className="text-gray-400 leading-relaxed flex-grow">
+              <p className="text-gray-400 leading-relaxed">
                 Unlimited capacity with Microsoft Partner infrastructure. 500+
                 satisfied clients achieving maximum deliverability at
                 transparent prices.
@@ -328,23 +235,15 @@ export default function About() {
             </div>
 
             {/* Our Approach */}
-            <div
-              className={`relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-700 group overflow-hidden h-full flex flex-col ${
-                isVisible.cards
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 translate-x-20"
-              }`}
-              style={{ transitionDelay: "400ms" }}
-            >
+            <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-300 group overflow-hidden">
               <div
                 className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
                 style={{ backgroundColor: "#ff6e40" }}
               ></div>
-              <h2 className="text-xl font-bold mb-3">
-                <span className="text-white">Our </span>
-                <span style={{ color: "#ff6e40" }}>Approach</span>
+              <h2 className="text-xl font-bold text-white mb-3">
+                Our Approach
               </h2>
-              <p className="text-gray-400 leading-relaxed flex-grow">
+              <p className="text-gray-400 leading-relaxed">
                 Combining cutting-edge Microsoft technology with personalized
                 service. Every solution is tailored with proactive monitoring
                 and expert optimization.
@@ -352,23 +251,15 @@ export default function About() {
             </div>
 
             {/* Global Reach */}
-            <div
-              className={`relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-700 group overflow-hidden h-full flex flex-col ${
-                isVisible.cards
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 translate-x-20"
-              }`}
-              style={{ transitionDelay: "500ms" }}
-            >
+            <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-300 group overflow-hidden">
               <div
                 className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
                 style={{ backgroundColor: "#ff6e40" }}
               ></div>
-              <h2 className="text-xl font-bold mb-3">
-                <span className="text-white">Global </span>
-                <span style={{ color: "#ff6e40" }}>Reach</span>
+              <h2 className="text-xl font-bold text-white mb-3">
+                Global Reach
               </h2>
-              <p className="text-gray-400 leading-relaxed flex-grow">
+              <p className="text-gray-400 leading-relaxed">
                 Serving clients worldwide with 24/7 support. Our global
                 infrastructure ensures fast, reliable delivery across all
                 regions and time zones.
@@ -406,16 +297,7 @@ export default function About() {
                   className="text-4xl lg:text-5xl font-bold mb-2"
                   style={{ color: "#ff6e40" }}
                 >
-                  {typeof stat.value === "number"
-                    ? stat.key === "clients"
-                      ? Math.floor(counts.clients)
-                      : stat.key === "emails"
-                      ? Math.floor(counts.emails)
-                      : stat.key === "uptime"
-                      ? counts.uptime.toFixed(1)
-                      : stat.value
-                    : stat.value}
-                  {typeof stat.value === "number" && stat.suffix}
+                  {stat.value}
                 </h3>
                 <p className="text-gray-400 font-medium">{stat.label}</p>
               </div>
@@ -442,9 +324,8 @@ export default function About() {
               <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
               <span className="font-semibold text-orange-400">Our Values</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              <span className="text-white">What </span>
-              <span style={{ color: "#ff6e40" }}>Drives Us Forward</span>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+              What Drives Us Forward
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Our core values guide everything we do and shape how we serve our
@@ -462,7 +343,7 @@ export default function About() {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-300 text-center group overflow-hidden h-full flex flex-col"
+                className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-300 text-center group overflow-hidden"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div
@@ -476,31 +357,20 @@ export default function About() {
                     border: "2px solid rgba(255, 110, 64, 0.3)",
                   }}
                 >
-                  {value.icon === "server" && (
-                    <svg className="w-8 h-8" style={{ color: "#ff6e40" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-                    </svg>
-                  )}
-                  {value.icon === "document" && (
-                    <svg className="w-8 h-8" style={{ color: "#ff6e40" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  )}
-                  {value.icon === "shield" && (
-                    <svg className="w-8 h-8" style={{ color: "#ff6e40" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  )}
-                  {value.icon === "handshake" && (
-                    <svg className="w-8 h-8" style={{ color: "#ff6e40" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  )}
+                  <span className="text-3xl">
+                    {index === 0
+                      ? "⚡"
+                      : index === 1
+                      ? "💎"
+                      : index === 2
+                      ? "🛡️"
+                      : "🎯"}
+                  </span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">
                   {value.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed flex-grow">
+                <p className="text-gray-400 text-sm leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -527,9 +397,8 @@ export default function About() {
               <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
               <span className="font-semibold text-orange-400">Our Journey</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              <span className="text-white">Growing Together </span>
-              <span style={{ color: "#ff6e40" }}>Since 2020</span>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+              Growing Together Since 2020
             </h2>
           </div>
 
@@ -605,74 +474,55 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* CTA Section */}
       <section
         className="py-20"
         style={{ backgroundColor: "#1c1c1c" }}
-        data-section="team"
+        data-section="cta"
       >
         <div className="container mx-auto px-6 lg:px-16 max-w-7xl">
           <div
-            className={`text-center mb-16 transition-all duration-1000 ${
-              isVisible.team
+            className={`relative rounded-3xl py-20 px-8 lg:px-16 overflow-hidden shadow-2xl transition-all duration-1000 ${
+              isVisible.cta
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
+            style={{
+              background: "linear-gradient(135deg, #ff6e40 0%, #ff8a65 100%)",
+            }}
           >
-            <div className="mb-6 inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 px-5 py-2 rounded-full">
-              <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
-              <span className="font-semibold text-orange-400">Our Team</span>
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              <span className="text-white">Meet the People Behind </span>
-              <span style={{ color: "#ff6e40" }}>HyperScale Inboxes</span>
-            </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Our experienced team is dedicated to delivering exceptional email
-              infrastructure solutions
-            </p>
-          </div>
+            {/* Decorative Elements */}
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
+                backgroundSize: "32px 32px",
+              }}
+            ></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
-          <div
-            className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-1000 ${
-              isVisible.team
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            {team.map((member, index) => (
-              <div
-                key={index}
-                className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-orange-500/50 transition-all duration-300 group overflow-hidden"
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <div
-                  className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-3xl"
-                  style={{ backgroundColor: "#ff6e40" }}
-                ></div>
-                <div className="relative z-10">
-                  <div className="mb-6 overflow-hidden rounded-xl">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-1">
-                    {member.name}
-                  </h3>
-                  <p
-                    className="text-sm font-semibold mb-3"
-                    style={{ color: "#ff6e40" }}
-                  >
-                    {member.role}
-                  </p>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {member.bio}
-                  </p>
-                </div>
+            <div className="relative z-10 text-center max-w-4xl mx-auto">
+              <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                Ready to Scale Your Email Infrastructure?
+              </h2>
+              <p className="text-lg lg:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                Join 500+ businesses that trust HyperScale Inboxes for unlimited
+                capacity and enterprise-grade deliverability
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  className="px-10 py-4 bg-white font-semibold rounded-full hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                  style={{ color: "#ff6e40" }}
+                >
+                  Get Started Today
+                </button>
+                <button className="px-10 py-4 bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-all duration-300 border-2 border-white backdrop-blur-sm hover:scale-105">
+                  Contact Sales
+                </button>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
