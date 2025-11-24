@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t backdrop-blur-xl rounded-t-[3rem]" style={{
+    <footer className="relative overflow-hidden border-t backdrop-blur-xl " style={{
       background: 'linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%)',
       borderColor: 'rgba(255, 110, 64, 0.1)'
     }}>

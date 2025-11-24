@@ -25,8 +25,9 @@ const ClientShowcase = () => {
     },
     {
       name: "lemlist",
-      iconSrc: "/lemlist-icon.svg",
+      logoSrc: "/lemlist-full-logo.svg",
       textColor: "text-foreground",
+      height: "h-10 md:h-12",
     },
   ];
 
@@ -62,17 +63,17 @@ const ClientShowcase = () => {
   return (
     <section className="pt-2 pb-0 relative" style={{ background: "linear-gradient(180deg, #141414 0%, #0f0f0f 100%)" }}>
       <div className="w-full relative z-10">
-        <div className="w-full relative border-y py-10" style={{ backgroundColor: 'rgba(255, 255, 255, 0.03)', borderColor: 'rgba(255, 110, 64, 0.1)' }}>
+        <div className="w-full relative border-y py-10" style={{ backgroundColor: 'rgba(255, 255, 255, 0.03)', borderColor: 'rgba(251, 146, 60, 0.1)' }}>
           <div className="overflow-hidden relative">
             {/* Left fade overlay */}
             <div
               className="absolute left-0 top-0 bottom-0 w-40 z-10 pointer-events-none"
-              style={{ background: 'linear-gradient(to right, rgba(15, 15, 15, 0.95), transparent)' }}
+              style={{ background: 'linear-gradient(to right, rgba(24, 24, 24, 0.95), transparent)' }}
             />
             {/* Right fade overlay */}
             <div
               className="absolute right-0 top-0 bottom-0 w-40 z-10 pointer-events-none"
-              style={{ background: 'linear-gradient(to left, rgba(15, 15, 15, 0.95), transparent)' }}
+              style={{ background: 'linear-gradient(to left, rgba(24, 24, 24, 0.95), transparent)' }}
             />
             <div ref={containerRef} className="flex">
             {/* Render logos twice for seamless loop */}

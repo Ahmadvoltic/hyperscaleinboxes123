@@ -9,6 +9,7 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
+import GlassCard from './GlassCard';
 
 const InfrastructureBenefits = () => {
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -161,27 +162,17 @@ const InfrastructureBenefits = () => {
                   ref={(el) => {
                     cardsRef.current[index] = el;
                   }}
-                  className="backdrop-blur-xl rounded-3xl p-8 sm:p-10 hover:border-orange-500/40 transition-all duration-700 hover:shadow-2xl hover:shadow-orange-500/10 flex flex-col justify-center text-left max-w-md border relative overflow-hidden group cursor-pointer hover:-translate-y-1"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)',
-                    borderColor: 'rgba(255, 255, 255, 0.08)',
-                    boxShadow: '0 12px 40px 0 rgba(0, 0, 0, 0.5)',
-                    minHeight: '200px'
-                  }}
+                  className="max-w-md cursor-pointer"
+                  style={{ minHeight: '200px' }}
                 >
-                  {/* Enhanced gradient circle on hover */}
-                  <div
-                    className="absolute -top-24 -right-24 w-52 h-52 rounded-full opacity-0 group-hover:opacity-20 transition-all duration-700 blur-3xl"
-                    style={{ background: 'radial-gradient(circle, #ff6e40 0%, transparent 70%)' }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
-
-                  <h4 className="text-lg sm:text-xl font-bold mb-4 text-left relative z-10 text-white tracking-tight">
-                    {item.subtitle}
-                  </h4>
-                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed text-left relative z-10">
-                    {item.description}
-                  </p>
+                  <GlassCard
+                    heading={item.subtitle}
+                    className="shadow-[0_12px_40px_0_rgba(0,0,0,0.5)]"
+                  >
+                    <p className="text-sm sm:text-base text-gray-300 leading-relaxed text-left">
+                      {item.description}
+                    </p>
+                  </GlassCard>
                 </div>
               </TimelineContent>
             </TimelineItem>
