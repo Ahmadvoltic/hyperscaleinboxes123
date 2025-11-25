@@ -13,8 +13,13 @@ const GetStartedButton = ({ className = "", size = "default" }: GetStartedButton
   const circleSize = size === "small" ? "w-7 h-7" : "w-10 h-10";
   const iconSize = size === "small" ? "w-3.5 h-3.5" : "w-5 h-5";
 
+  const handleClick = () => {
+    window.open('https://calendly.com/taylor-jones-hyperscaleinboxes/30min?month=2025-11', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <button
+      onClick={handleClick}
       className={`rounded-full font-semibold text-white transition-all duration-500 flex items-center group relative overflow-hidden ${sizeClasses} ${className}`}
       style={{
         background: 'linear-gradient(to right, #fb923c 0%, #f97316 50%, #ea580c 100%)',

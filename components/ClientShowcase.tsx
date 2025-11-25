@@ -90,7 +90,7 @@ const ClientShowcase = () => {
                 ) : (
                   <div className="flex items-center gap-2 whitespace-nowrap">
                     <img
-                      src={logo.iconSrc}
+                      src={logo.logoSrc}
                       alt={`${logo.name} icon`}
                       className="w-10 h-10 md:w-12 md:h-12 object-contain flex-shrink-0"
                     />
