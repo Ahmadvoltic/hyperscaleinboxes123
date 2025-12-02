@@ -1,39 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Navigation from "@/components/Navigation";
 import Link from "next/link";
 
-export default function OrderSuccessPage() {
+function OrderSuccessContent() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
-  const [loading, setLoading] = useState(true);
-  const [orderDetails, setOrderDetails] = useState<any>(null);
-
-  useEffect(() => {
-    if (sessionId) {
-      // Optionally fetch order details from your API
-      // For now, we'll just show a success message
-      setLoading(false);
-    } else {
-      setLoading(false);
-    }
-  }, [sessionId]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen" style={{ background: "linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%)" }}>
-        <Navigation />
-        <div className="container mx-auto px-6 lg:px-20 py-32 max-w-4xl">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto"></div>
-            <p className="text-gray-300 mt-4">Loading...</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen" style={{ background: "linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%)" }}>
@@ -141,6 +115,28 @@ export default function OrderSuccessPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen" style={{ background: "linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%)" }}>
+      <Navigation />
+      <div className="container mx-auto px-6 lg:px-20 py-32 max-w-4xl">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto"></div>
+          <p className="text-gray-300 mt-4">Loading...</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function OrderSuccessPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <OrderSuccessContent />
+    </Suspense>
   );
 }
 
