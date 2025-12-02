@@ -114,7 +114,7 @@ export default function OrderFormPage() {
       setFormData(prev => {
         const updated = { 
           ...prev, 
-          customDomains: [],
+          customDomains: [] as string[],
           selectedDomains: [],
           searchedDomains: [],
           packageType: newPackageType,
@@ -122,7 +122,7 @@ export default function OrderFormPage() {
         
         // If switching to BYOD, initialize custom domains array immediately
         if (newPackageType === 'byod') {
-          updated.customDomains = Array(numberOfDomains).fill("");
+          updated.customDomains = Array(numberOfDomains).fill("") as string[];
         }
         
         return updated;
