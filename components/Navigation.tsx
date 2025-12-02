@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import GetStartedButton from "./GetStartedButton";
+import OrderPopup from "./OrderPopup";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const navItems = [
     { label: "Home", path: "/" },
@@ -58,7 +60,7 @@ const Navigation = () => {
           {/* Action Button & Mobile Menu Toggle */}
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex">
-              <GetStartedButton size="small" />
+              <GetStartedButton size="small" onClick={() => setIsPopupOpen(true)} />
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -98,12 +100,14 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="px-6 py-3">
-                <GetStartedButton size="small" className="w-full justify-center" />
+                <GetStartedButton size="small" className="w-full justify-center" onClick={() => setIsPopupOpen(true)} />
               </div>
             </div>
           </div>
         )}
       </div>
+
+      <OrderPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </nav>
   );
 };
