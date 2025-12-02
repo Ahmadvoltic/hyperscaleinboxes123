@@ -87,20 +87,47 @@ export default function OrderFormPage() {
 
     // Initialize arrays when domain count or package type changes
     if (name === "numberOfDomains") {
+      const newNumberOfDomains = parseInt(value) || 1;
+      
+      // Update customDomains immediately if BYOD is selected
+      if (formData.packageType === 'byod') {
+        setFormData(prev => ({
+          ...prev,
+          [name]: value,
+          customDomains: Array(newNumberOfDomains).fill(""),
+        }));
+      } else {
+        setFormData(prev => ({ ...prev, [name]: value }));
+      }
+      
+      // Initialize account names
       setTimeout(() => {
         initializeAccountNames();
-        initializeCustomDomains();
       }, 0);
     }
     
     // Clear domain selections when package type changes
     if (name === "packageType") {
-      setFormData(prev => ({ 
-        ...prev, 
-        customDomains: [],
-        selectedDomains: [],
-        searchedDomains: [],
-      }));
+      const newPackageType = value as 'byod' | 'full';
+      const numberOfDomains = parseInt(formData.numberOfDomains) || 1;
+      
+      setFormData(prev => {
+        const updated = { 
+          ...prev, 
+          customDomains: [],
+          selectedDomains: [],
+          searchedDomains: [],
+          packageType: newPackageType,
+        };
+        
+        // If switching to BYOD, initialize custom domains array immediately
+        if (newPackageType === 'byod') {
+          updated.customDomains = Array(numberOfDomains).fill("");
+        }
+        
+        return updated;
+      });
+      
       // Reset account names when package type changes
       setTimeout(() => {
         setAccountNames([]);
